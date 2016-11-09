@@ -1,6 +1,6 @@
 <h1> users index </h1>
-<% @users.each do |user| %>
   <table>
+<% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
       <td><%= link_to '修改', edit_user_path(user) %></td>
@@ -8,5 +8,5 @@
       <td><%= link_to '刪除', user, method: :delete, data: { confirm: '確定要刪除使用者?' } %></td>
       
     </tr>
-  </table>
 <% end %>
+  </table>

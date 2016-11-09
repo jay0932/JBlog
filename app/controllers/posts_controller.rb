@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+class PostsController < ActionController::Base
   before_action :set_post, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def update
-    if @post.update(params[:id])
+    if @post.update(post_params)
       redirect_to @post
     else
       render :edit

@@ -1,0 +1,14 @@
+<h1> posts index </h1>
+  <table>
+<% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= post.user_id %></td>
+      <td><%= link_to '修改', edit_post_path(post) %></td>
+      <td><%= link_to '新增', new_post_path %></td>
+      <td><%= link_to '刪除', post, method: :delete, data: { confirm: '確定要刪除文章?' } %></td>
+      
+    </tr>
+<% end %>
+  </table>
