@@ -52,3 +52,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #jay add
 #AP
 gem 'awesome_print'
+gem 'bcrypt'
+gem 'bootstrap-sass'
