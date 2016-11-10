@@ -6,9 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "canv" %>
+  
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <div id="header"><%= render 'layouts/nav' %></div>
+      <div id="content"><%= yield %></div>
+      <div id="footer"><%= render 'layouts/footer' %></div>
+    </div>
   </body>
 </html>
