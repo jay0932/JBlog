@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def show_my_posts
+    #@user_posts = Post.find(current_user)
+    @user_posts = current_user.posts
+  end
+
 private
   
   def set_user
