@@ -6,9 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments
     @comment = Comment.new
-  
+    @comments = @post.comments
   end
 
   def new
@@ -42,6 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
   end
+
 
 private
 

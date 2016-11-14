@@ -4,18 +4,18 @@
     <tr>
       <th>文章主題</th>
       <th>文章內容</th>
-      <th>關聯使用者</th>
+      <th>作者</th>
       <th>修改</th>
       <th>刪除</th>
     </tr>
   </thead>
   <tbody>
-  <% @posts.each do |post| %>
+  <% @posts   .each do |post| %>
     <tr>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
-      <td><%= post.user_id %></td>
-      <td><%= link_to '修改', edit_post_path(post) %></td>
+      <td><%= post.user.name %></td>
+      <td><%= link_to '查看', post_path(post) %></td>
       <td><%= link_to '刪除', post, method: :delete, data: { confirm: '確定要刪除文章?' } %></td> 
     </tr>
   <% end %>

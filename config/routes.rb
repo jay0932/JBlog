@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 	get 'register', to: 'users#new'
 
 	get '/show_my_posts', to: 'users#show_my_posts'
+
+	resources :posts do
+    resources :comments
+  end
 end

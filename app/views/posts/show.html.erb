@@ -1,6 +1,48 @@
+
 <% if logged_in? %> 
-<%= @post.title %> <p>
-<%= @post.content %> <p>
-<%= @post.user_id %> <p>
-<%= link_to '首頁', posts_path %>
+  <table class="table table-bordered">
+    <thead class="thead-inverse">
+      <tr>
+        <th>文章ID</th>
+        <th>文章主題</th>
+        <th>文章內容</th>
+        <th>發佈者</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @post.id %></td>
+      	<td><%= @post.title %></td>
+      	<td><%= @post.content %></td>
+      	<td><%= @post.user.name%></td>
+      </tr>
+    </tbody>
+  </table>
+ <table class="table table-bordered">
+    <thead class="thead-inverse">
+      <tr>
+        <th>回應內容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @post.comments.each do |comment| %>
+        <tr>
+      		<td><%= comment.content %> <p> <%= "Write by #{comment.user.name}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= form_for [@post, @comment] do |f| %>
+  
+    <div class="form-group">
+      <%= f.label :回應內容 %>
+      <br>
+      <%= f.text_area :content, rows: 3 %>
+    </div>
+    <div class="form-group">
+    <%= f.submit '新增回應', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  
+  
 <% end %>

@@ -13,8 +13,8 @@
   <% @comments.each do |comment| %>
     <tr>
       <td><%= comment.content %></td>
-      <td><%= comment.post_id %></td>
-      <td><%= comment.user_id %></td>
+      <td><%= comment.post.title %></td>
+      <td><%= comment.user.name %></td>
       <td><%= link_to '修改', edit_comment_path(comment) %></td>
       <td><%= link_to '刪除', comment, method: :delete, data: { confirm: '確定要刪除回應?' } %></td> 
     </tr>
