@@ -1,0 +1,24 @@
+<% if logged_in? %> 
+<table class="table table-bordered">
+  <thead class="thead-inverse">
+    <tr>
+      <th>回應內容</th>
+      <th>關聯文章</th>
+      <th>關聯使用者</th>
+      <th>修改</th>
+      <th>刪除</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.content %></td>
+      <td><%= comment.post_id %></td>
+      <td><%= comment.user_id %></td>
+      <td><%= link_to '修改', edit_comment_path(comment) %></td>
+      <td><%= link_to '刪除', comment, method: :delete, data: { confirm: '確定要刪除回應?' } %></td> 
+    </tr>
+  <% end %>
+  </tbody>
+ </table>
+<% end %>
