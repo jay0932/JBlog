@@ -4,8 +4,6 @@ class CommentsController < ApplicationController
 
 	def index
 		@comments = Comment.all
-    @posts = Post.all
-    @users = User.all
 	end
 
 	def show

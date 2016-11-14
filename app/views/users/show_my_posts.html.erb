@@ -1,19 +1,21 @@
 <table class="table table-bordered" >
   <thead class="thead-inverse">
     <tr>
-      <th>作者</th>
       <th>標題</th>
       <th>內容</th>
       <th>建立時間</th>
+      <th>修改</th>
+      <th>刪除</th>
     </tr>
   </thead>
   <tbody>
     <% @user_posts.each do |post| %>
       <tr>
-        <td><%= post.user_id %></td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.created_at %></td>
+        <td><%= link_to '修改', edit_post_path(post) %></td>    
+        <td><%= link_to '刪除', post, method: :delete, data: { confirm: '確定要刪除文章?' } %></td>  
     <% end %>
   </tbody>
 </table>
