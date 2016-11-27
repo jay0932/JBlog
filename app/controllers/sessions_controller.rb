@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     #驗證使用者，若成功，就建立一個 session，把 user_id 放入 session hash
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to show_my_posts_path
+      redirect_to posts_path
     else
       redirect_to login_path
     end

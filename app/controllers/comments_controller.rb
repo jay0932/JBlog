@@ -1,4 +1,4 @@
-
+#require 'pry'
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :show, :destroy]
 
@@ -15,9 +15,17 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+	#	binding.pry
 	    @post = Post.find(params[:post_id])
-	    @comment = @post.comments.build(params.require(:comment).permit(:content))
+	    
+	    @comment = Comment.new(params.require(:comment).permit(:content))
+	    #comment.save
+	    
+	    #@comment = Comment.create(params.require(:comment).permit(:content))
+	    
+	    @post.comments << @comment
 	    @comment.user = current_user
+	    
 	    if @comment.save
 	      redirect_to post_path(@post)
 	    else

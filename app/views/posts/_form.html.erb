@@ -4,23 +4,23 @@
       <div class="form-group">
         <%= f.label :主題 %>
         <br>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= f.label :內容 %>
         <br>
-        <%= f.text_area :content %>
+        <%= f.text_area :content, class: "form-control" %>
       </div>
       
-      <% #不知道怎麼把類別加入與抓出類別 %>
-      <%= form_for @post do |f| %>
+      <%# #不知道怎麼把類別加入與抓出類別 %>
+      <%#= form_for @post do |f| %>
         <div class="form-group">
           <%= f.label :類別 %>
           <br>
         <%= collection_select(:Category, :category_id, Category.all, :id, :name) %>
         </div>
-      <% end %>
+      <%# end %>
 
       <br>
 

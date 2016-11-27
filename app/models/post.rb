@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  attr_accessor :category_name
   belongs_to :user
   has_many :comments
   

@@ -1,0 +1,11 @@
+<%# binding pry %>
+<div class="row">
+  <div class="col-lg-6">
+  <% find_categories.each do |cat| %>
+    <ul class="list-unstyled">
+      <li><a href="#"><%= cat.name %></a></li>
+    </ul>
+    <% end %>
+  </div>
+
+</div>

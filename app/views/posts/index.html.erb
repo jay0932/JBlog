@@ -1,29 +1,23 @@
 
-<table class="table table-bordered">
-  <thead class="thead-inverse">
-    <tr>
-      <th>類別</th>
-      <th>文章主題</th>
-      <th>文章內容</th>
-      <th>作者</th>
-      <% if logged_in? %> 
-        <th>修改</th>
-        <th>刪除</th>
+
+<% @posts.each do |post| %>
+  <h2>
+    <%= link_to post.title, post_path(post) %>
+  </h2>
+  
+  <p class="lead">by <a href="#"><%= post.user.name %></a></p>
+
+  <p><span class="glyphicon glyphicon-time"></span>類別：<%= post.category_name %></p>
+  <hr>
+  <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+  <hr>
+    <p><%= post.content %></p>
+    <% if logged_in? %>
+      <% if current_user.id == post.user.id %> 
+        <%= link_to '修改', edit_post_path(post) %>
+        <%= link_to '刪除', post, method: :delete, data: { confirm: '確定要刪除文章?' } %>
       <% end %>
-    </tr>
-  </thead>
-  <tbody>
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= "類別" %></td>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= post.user.name %></td>
-      <% if logged_in? %> 
-        <td><%= link_to '查看', post_path(post) %></td>
-        <td><%= link_to '刪除', post, method: :delete, data: { confirm: '確定要刪除文章?' } %></td> 
-      <% end %>
-    </tr>
-  <% end %>
-  </tbody>
- </table>
+    <% end %>
+<hr>
+<% end %>
+
